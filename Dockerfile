@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:10-slim
 ENV DEBIAN_FRONTEND noninteractive
 ENV ROON_EXT_VERSION v2.6.5
 ENV ROON_EXT_BUILD 382
