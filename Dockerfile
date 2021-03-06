@@ -1,7 +1,7 @@
 FROM debian:10-slim
 ENV DEBIAN_FRONTEND noninteractive
 ENV ROON_EXT_VERSION v2.6.6
-ENV ROON_EXT_BUILD 385
+ENV ROON_EXT_BUILD 386
 ENV ROON_SERVER_PKG roon-extension-deep-harmony-${ROON_EXT_VERSION}.${ROON_EXT_BUILD}-linux-x64.zip
 ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-release/releases/download/${ROON_EXT_VERSION}%2B${ROON_EXT_BUILD}/${ROON_SERVER_PKG}
 
