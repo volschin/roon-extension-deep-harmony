@@ -1,4 +1,4 @@
-FROM debian:10-slim
+FROM debian:11-slim
 ENV DEBIAN_FRONTEND noninteractive
 ENV ROON_EXT_VERSION v2.6.7
 ENV ROON_EXT_BUILD 387
