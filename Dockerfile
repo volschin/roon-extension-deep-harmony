@@ -20,8 +20,8 @@ RUN curl -sL $ROON_SERVER_URL -O \
   && chmod 755 /usr/src/app/run.sh \
   && useradd -c 'Node.js user' -m -d /home/node -s /bin/bash node
 
-USER node
-ENV HOME /home/node
+#USER node
+#ENV HOME /home/node
 ENV DEBUG=roon-extension-deep-harmony:*
 
 CMD ["/usr/src/app/run.sh"]
