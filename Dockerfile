@@ -10,6 +10,7 @@ RUN apt-get update \
   && apt-get install -qqy --no-install-recommends curl ca-certificates unzip \
   && apt-get autoremove && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+
 WORKDIR /usr/src/app
 
 RUN curl -sL $ROON_SERVER_URL -O \
@@ -17,8 +18,8 @@ RUN curl -sL $ROON_SERVER_URL -O \
   && rm -f $ROON_SERVER_PKG \
   && chmod 777 /usr/src/app/roon-extension-deep-harmony \
   && chmod 755 /usr/src/app/run.sh \
-  && useradd -c 'Node.js user' -m -d /home/node -s /bin/bash node \
-  && chown node:node logs
+  && useradd -c 'Node.js user' -m -d /home/node -s /bin/bash node
+
 USER node
 ENV HOME /home/node
 ENV DEBUG=roon-extension-deep-harmony:*
