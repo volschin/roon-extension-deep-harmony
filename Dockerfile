@@ -17,7 +17,10 @@ RUN curl -sL $ROON_SERVER_URL -O \
   && unzip $ROON_SERVER_PKG \
   && rm -f $ROON_SERVER_PKG \
   && chmod 777 /usr/src/app/roon-extension-deep-harmony \
-  && chmod 777 /usr/src/app/run.sh
+  && chmod 755 /usr/src/app/run.sh \
+  && useradd -c 'Node.js user' -m -d /home/node -s /bin/bash node
+USER node
 ENV DEBUG=roon-extension-deep-harmony:*
+ENV HOME /home/node
 
 CMD ["/usr/src/app/run.sh"]
