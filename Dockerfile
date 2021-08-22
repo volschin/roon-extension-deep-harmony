@@ -9,7 +9,7 @@ RUN apt-get update \
   && apt-get -y upgrade \
   && apt-get install -qqy --no-install-recommends curl ca-certificates unzip \
   && apt-get autoremove && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 WORKDIR /usr/src/app
 
 RUN curl -sL $ROON_SERVER_URL -O \
