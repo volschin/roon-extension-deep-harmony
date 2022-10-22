@@ -1,8 +1,10 @@
 FROM debian:11-slim
+ARG TARGETOS
+ARG TARGETARCH
 ENV DEBIAN_FRONTEND noninteractive
 ENV ROON_EXT_VERSION v2.6.7
 ENV ROON_EXT_BUILD 387
-ENV ROON_SERVER_PKG roon-extension-deep-harmony-${ROON_EXT_VERSION}.${ROON_EXT_BUILD}-${TAGETOS}-$[TARGETARCH}.zip
+ENV ROON_SERVER_PKG roon-extension-deep-harmony-${ROON_EXT_VERSION}.${ROON_EXT_BUILD}-$TARGETOS-$TARGETARCH.zip
 ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-release/releases/download/${ROON_EXT_VERSION}%2B${ROON_EXT_BUILD}/${ROON_SERVER_PKG}
 
 RUN apt-get update \
@@ -13,7 +15,7 @@ RUN apt-get update \
 
 WORKDIR /usr/src/app
 
-RUN curl -sL $ROON_SERVER_URL -O \
+RUN if [ "$TARGETARCH" = "amd64" ] ; then curl -sL $ROON_SERVER_URL -O ; else curl -sL $ROON_SERVER_URL -O ; fi \
   && unzip $ROON_SERVER_PKG \
   && rm -f $ROON_SERVER_PKG \
   && chmod 777 /usr/src/app/roon-extension-deep-harmony \
