@@ -15,7 +15,7 @@ RUN apt-get update \
 
 WORKDIR /usr/src/app
 
-RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip -O ; else export TARGETEXT=armv7.zip ; fi \
+RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export TARGETEXT=armv7.zip ; fi \
   && curl -sL $ROON_SERVER_URL$TARGETEXT -O \
   && unzip $ROON_SERVER_PKG$TARGETEXT \
   && rm -f $ROON_SERVER_PKG$TARGETEXT \
