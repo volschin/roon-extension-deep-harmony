@@ -13,18 +13,18 @@ RUN apt-get update \
   && apt-get autoremove && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export TARGETEXT=armv7.zip ; fi \
   && curl -sL $ROON_SERVER_URL$TARGETEXT -O \
   && unzip $ROON_SERVER_PKG$TARGETEXT \
   && rm -f $ROON_SERVER_PKG$TARGETEXT \
-  && chmod 777 /usr/src/app/roon-extension-deep-harmony \
-  && chmod 755 /usr/src/app/run.sh 
+  && chmod 777 ./roon-extension-deep-harmony \
+  && chmod 755 ./run.sh 
 #  && useradd -c 'Node.js user' -m -d /home/node -s /bin/bash node
 
 #USER node
 #ENV HOME /home/node
 ENV DEBUG=roon-extension-deep-harmony:*
 
-CMD ["/usr/src/app/run.sh"]
+CMD ["/app/run.sh"]
