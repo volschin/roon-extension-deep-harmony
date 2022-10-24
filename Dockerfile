@@ -22,4 +22,4 @@ RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export
 #ENV HOME /home/node
 ENV DEBUG=roon-extension-deep-harmony:*
 
-CMD ["./run.sh"]
+CMD ["/usr/src/app/run.sh"]
