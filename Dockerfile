@@ -8,18 +8,18 @@ ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-releas
 
 RUN apk add --update curl unzip && rm -rf /var/cache/apk/*
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export TARGETEXT=armv7.zip ; fi \
   && curl -sL $ROON_SERVER_URL${TARGETEXT} -O \
   && unzip $ROON_SERVER_PKG$TARGETEXT \
   && rm -f $ROON_SERVER_PKG$TARGETEXT \
-  && chmod 777 /app/roon-extension-deep-harmony \
-  && chmod 755 /app/run.sh 
+  && chmod 755 roon-extension-deep-harmony \
+  && chmod 755 run.sh 
 # && useradd -c 'Node.js user' -m -d /home/node -s /bin/bash node
 
 #USER node
 #ENV HOME /home/node
 ENV DEBUG=roon-extension-deep-harmony:*
 
-CMD ["/app/run.sh"]
+CMD ["./run.sh"]
