@@ -19,8 +19,7 @@ RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export
   && curl -sL $ROON_SERVER_URL$TARGETEXT -O \
   && unzip $ROON_SERVER_PKG$TARGETEXT \
   && rm -f $ROON_SERVER_PKG$TARGETEXT \
-  && chmod 777 ./roon-extension-deep-harmony \
-  && chmod 755 ./run.sh 
+  && chmod 755 roon-extension-deep-harmony run.sh 
 #  && useradd -c 'Node.js user' -m -d /home/node -s /bin/bash node
 
 #USER node
