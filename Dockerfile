@@ -10,7 +10,7 @@ ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-releas
 RUN apt-get update \
   && apt-get -y upgrade \
   && apt-get install -qqy --no-install-recommends curl ca-certificates unzip \
-  && if [ "$TARGETARCH" = "aarch64" ] ; then dpkg --add-architecture armhf && apt-get install -qqy --no-install-recommends libc6:armhf ; fi \
+  && if [ "$TARGETARCH" = "arm64" ] ; then dpkg --add-architecture armhf && apt-get install -qqy --no-install-recommends libc6:armhf ; fi \
   && apt-get autoremove && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
