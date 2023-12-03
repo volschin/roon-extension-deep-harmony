@@ -7,11 +7,11 @@ ENV ROON_EXT_BUILD 387
 ENV ROON_SERVER_PKG roon-extension-deep-harmony-${ROON_EXT_VERSION}.${ROON_EXT_BUILD}-$TARGETOS-
 ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-release/releases/latest/download/${ROON_SERVER_PKG}
 
-RUN apt-get update \
-  && apt-get -y upgrade \
-  && apt-get install -qqy --no-install-recommends curl ca-certificates jq unzip \
-  && if [ "$TARGETARCH" = "arm64" ] ; then dpkg --add-architecture armhf && apt-get install -qqy --no-install-recommends libc6:armhf ; fi \
-  && apt-get autoremove && apt-get clean \
+RUN apt update \
+  && apt -y upgrade \
+  && apt install -qqy --no-install-recommends curl ca-certificates jq unzip \
+  && if [ "$TARGETARCH" = "arm64" ] ; then dpkg --add-architecture armhf && apt update && apt install -qqy --no-install-recommends libc6:armhf ; fi \
+  && apt autoremove && apt clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 WORKDIR /app
