@@ -21,10 +21,7 @@ RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export
   && unzip $ROON_SERVER_PKG$TARGETEXT \
   && rm -f $ROON_SERVER_PKG$TARGETEXT \
   && chmod 755 roon-extension-deep-harmony run.sh 
-#  && useradd -c 'Node.js user' -m -d /home/node -s /bin/bash node
 
-#USER node
-#ENV HOME /home/node
 ENV DEBUG=roon-extension-deep-harmony:*
 
 CMD ["/app/run.sh"]
