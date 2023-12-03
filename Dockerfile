@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV ROON_EXT_VERSION v2.6.7
 ENV ROON_EXT_BUILD 387
 ENV ROON_SERVER_PKG roon-extension-deep-harmony-${ROON_EXT_VERSION}.${ROON_EXT_BUILD}-$TARGETOS-
-ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-release/releases/download/${ROON_EXT_VERSION}%2B${ROON_EXT_BUILD}/${ROON_SERVER_PKG}
+ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-release/releases/latest/download/${ROON_SERVER_PKG}
 
 RUN apt-get update \
   && apt-get -y upgrade \
