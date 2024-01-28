@@ -1,4 +1,4 @@
-FROM bitnami/minideb:bookworm
+FROM gcr.io/distroless/base-debian12
 ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETEXT
