@@ -18,12 +18,11 @@ ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-releas
 WORKDIR /app
 ADD ${ROON_SERVER_URL}x64.zip .
 
-#RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export TARGETEXT=armv7.zip ; fi \
+RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export TARGETEXT=armv7.zip ; fi \
 #  && curl -sL $ROON_SERVER_URL$TARGETEXT -O \
-#  && unzip $ROON_SERVER_PKG$TARGETEXT \
-#  && rm -f $ROON_SERVER_PKG$TARGETEXT \
-#  && chmod 755 roon-extension-deep-harmony run.sh 
-RUN chmod 755 roon-extension-deep-harmony run.sh
+  && unzip $ROON_SERVER_PKG$TARGETEXT \
+  && rm -f $ROON_SERVER_PKG$TARGETEXT \
+  && chmod 755 roon-extension-deep-harmony run.sh 
 ENV DEBUG=roon-extension-deep-harmony:*
 
 CMD ["/app/run.sh"]
