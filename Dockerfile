@@ -1,5 +1,5 @@
 #FROM debian:12-slim
-FROM busybox:1.36-glibc
+FROM bitnami/minideb:bookworm
 ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETEXT
