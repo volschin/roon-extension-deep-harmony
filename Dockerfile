@@ -15,10 +15,10 @@ RUN apt update \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 WORKDIR /app
 
-RUN curl -sL $ROON_SERVER_URL -O \
-  && unzip $ROON_SERVER_PKG \
+RUN curl -sL ${ROON_SERVER_URL} -O \
+  && unzip ${ROON_SERVER_PKG} \
   && rm -f ${ROON_SERVER_PKG} \
-  && chmod 755 roon-extension-deep-harmony run.sh 
-ENV DEBUG=roon-extension-deep-harmony:*
+  && chmod 755 roon-extension-deep-harmony run.sh
 
+ENV DEBUG=roon-extension-deep-harmony:*
 CMD ["/app/run.sh"]
