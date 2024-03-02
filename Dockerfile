@@ -1,12 +1,12 @@
 FROM gcr.io/distroless/base-debian12
-ARG TARGETOS
-ARG TARGETARCH
-ARG TARGETEXT
-ENV DEBIAN_FRONTEND noninteractive
-ENV ROON_EXT_VERSION v2.6.7
-ENV ROON_EXT_BUILD 387
-ENV ROON_SERVER_PKG roon-extension-deep-harmony-${ROON_EXT_VERSION}.${ROON_EXT_BUILD}-$TARGETOS-
-ENV ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-release/releases/latest/download/${ROON_SERVER_PKG}
+ARG TARGETOS \
+    TARGETARCH \
+    TARGETEXT
+ENV DEBIAN_FRONTEND noninteractive \
+    ROON_EXT_VERSION v2.6.7 \
+    ROON_EXT_BUILD 387 \
+    ROON_SERVER_PKG roon-extension-deep-harmony-${ROON_EXT_VERSION}.${ROON_EXT_BUILD}-$TARGETOS- \
+    ROON_SERVER_URL https://github.com/Khazul/roon-extension-deep-harmony-release/releases/latest/download/${ROON_SERVER_PKG}
 
 RUN apt update \
   && apt -y upgrade \
