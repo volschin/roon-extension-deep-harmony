@@ -22,7 +22,7 @@ RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export
   && rm -f $ROON_SERVER_PKG$TARGETEXT \
   && chmod 755 roon-extension-deep-harmony run.sh 
 
-FROM gcr.io/distroless/static-debian12
+FROM gcr.io/distroless/base-debian12
 
 COPY --from=builder /app/roon-extension-deep-harmony /
 #COPY --from=busybox:1.35.0-uclibc /bin/sh /bin/sh
