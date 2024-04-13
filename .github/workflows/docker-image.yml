@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: '0 0 28 * *'
 
+permissions:
+  contents: read
+
 jobs:
   multi:
     runs-on: ubuntu-latest
