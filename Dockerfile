@@ -1,4 +1,4 @@
-FROM debian:12-slim
+FROM debian:12-slim AS builder
 ARG TARGETOS \
     TARGETARCH
 ENV DEBIAN_FRONTEND noninteractive
@@ -21,6 +21,10 @@ RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export
   && unzip $ROON_SERVER_PKG$TARGETEXT \
   && rm -f $ROON_SERVER_PKG$TARGETEXT \
   && chmod 755 roon-extension-deep-harmony run.sh 
+
+FROM gcr.io/distroless/static-debian12
+WORKDIR /app
+COPY --from builder /app /app
 
 ENV DEBUG=roon-extension-deep-harmony:*
 CMD ["/app/run.sh"]
