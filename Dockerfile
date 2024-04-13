@@ -29,4 +29,4 @@ COPY --from=busybox:1.35.0-uclibc /bin/sh /bin/sh
 WORKDIR /app
 
 ENV DEBUG=roon-extension-deep-harmony:*
-ENTRYPOINT ["/bin/sh", "/app/run.sh"]
+ENTRYPOINT ["./roon-extension-deep-harmony"]
