@@ -1,4 +1,4 @@
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/{owner}/{repo}/badge)](https://securityscorecards.dev/viewer/?uri=github.com/volschin/roon-extension-deep-harmony)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/volschin/roon-extension-deep-harmony/badge)](https://securityscorecards.dev/viewer/?uri=github.com/volschin/roon-extension-deep-harmony)
 # docker-roon-extension-deep-harmony
 
 
