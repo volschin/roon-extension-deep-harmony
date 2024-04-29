@@ -9,7 +9,7 @@
     ":automergeDigest",
     ":automergeBranch",
     "helpers:pinGitHubActionDigests"
-  ]
+  ],
   "packageRules": [
     // automerge
     {
