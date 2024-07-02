@@ -13,4 +13,3 @@
       volumes:
         - ${HOME_PATH}/ext-harm/config.json:/config.json
         - extension-deep-harmony_logs:/logs/
-
