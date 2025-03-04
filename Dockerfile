@@ -21,7 +21,7 @@ RUN if [ "$TARGETARCH" = "amd64" ] ; then export TARGETEXT=x64.zip ; else export
   && unzip $ROON_SERVER_PKG$TARGETEXT \
   && rm -f $ROON_SERVER_PKG$TARGETEXT \
   && chmod 755 roon-extension-deep-harmony run.sh \
-  && chown 9330:9330 /app
+  && chown -R 9330:9330 /app
 
 FROM gcr.io/distroless/cc-debian12@sha256:b7550f0b15838de14c564337eef2b804ba593ae55d81ca855421bd52f19bb480
 COPY --from=builder /app/roon-extension-deep-harmony /
