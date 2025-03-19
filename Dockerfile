@@ -1,4 +1,4 @@
-FROM debian:12.10-slim@sha256:9acf114f204f386fd43f00046c739dbdc8c34ca3d085a20a4c0a4ea7e0d96ba1 AS builder
+FROM debian:12.10-slim@sha256:1209d8fd77def86ceb6663deef7956481cc6c14a25e1e64daec12c0ceffcc19d AS builder
 ARG TARGETOS \
     TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive
