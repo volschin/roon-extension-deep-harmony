@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/gitleaks/gitleaks
-  rev: v8.30.1
+  rev: v8.30.0
   hooks:
   - id: gitleaks
 - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -10,10 +10,10 @@ repos:
   - id: trailing-whitespace
   - id: check-yaml
 - repo: https://github.com/renovatebot/pre-commit-hooks
-  rev: 43.91.2
+  rev: 43.101.1
   hooks:
   - id: renovate-config-validator
 - repo: https://github.com/rhysd/actionlint
-  rev: v1.7.11
+  rev: v1.7.12
   hooks:
   - id: actionlint
